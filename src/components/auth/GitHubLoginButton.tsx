@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { GitHubLogoIcon } from '@radix-ui/react-icons';
 
-export const GitHubOAuthLoginButton = () => {
+export const GitHubLoginButton = () => {
   return (
     <Button className="tw-h-auto" variant="outline">
       <GitHubLogoIcon width={30} height={30} />

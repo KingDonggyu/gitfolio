@@ -1,9 +1,9 @@
-import { GitHubOAuthLoginButton } from '@/components/auth/GitHubOAuthLoginButton';
+import { GitHubLoginButton } from '@/components/auth/GitHubLoginButton';
 
 export default function Home() {
   return (
     <main>
-      <GitHubOAuthLoginButton />
+      <GitHubLoginButton />
     </main>
   );
 }
