@@ -1,4 +1,4 @@
-import { GitHubLoginButton } from '@/components/auth/GitHubLoginButton';
+import { GitHubLoginButton } from '@/components/auth/github-login-button';
 
 export default function Home() {
   return (
