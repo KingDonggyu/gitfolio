@@ -18,4 +18,10 @@ declare module 'github' {
   }
 
   type GitHubLoginResponse = GitHubLoginSuccessResponse | GitHubLoginErrorResponse;
+
+  interface GitHubUserResponse {
+    id: number;
+    login: string;
+    html_url: string;
+  }
 }

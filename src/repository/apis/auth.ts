@@ -1,9 +1,11 @@
 import { githubOAuthApiRequester } from '@/lib/api-requesters';
-import { GitHubLoginRequest, GitHubLoginResponse } from 'github';
+import type { GitHubLoginRequest, GitHubLoginResponse, GitHubLoginSuccessResponse } from 'github';
 
-export const postGitHubLogin = async (githubLoginRequest: GitHubLoginRequest) => {
+export const postGitHubLogin = async (
+  githubLoginRequest: GitHubLoginRequest
+): Promise<GitHubLoginSuccessResponse> => {
   const response = await githubOAuthApiRequester.post<GitHubLoginResponse>(
-    '/access_token',
+    'access_token',
     githubLoginRequest
   );
 
