@@ -1,5 +1,5 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { FileTextIcon } from '@radix-ui/react-icons';
+import { FileTextIcon, RocketIcon } from '@radix-ui/react-icons';
 
 const tabs = {
   readme: 'readmd',
@@ -19,7 +19,12 @@ export const PortfolioDetailTabs = ({ readmeViewer, taskViewer }: PortfolioDetai
           <FileTextIcon className="mr-1" />
           README
         </TabsTrigger>
-        {taskViewer && <TabsTrigger value={tabs.task}>이런 일을 했어요</TabsTrigger>}
+        {taskViewer && (
+          <TabsTrigger value={tabs.task}>
+            <RocketIcon className="mr-1" />
+            이런 일을 했어요
+          </TabsTrigger>
+        )}
       </TabsList>
       <div>
         <TabsContent value={tabs.readme}>{readmeViewer}</TabsContent>

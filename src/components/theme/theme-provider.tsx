@@ -7,7 +7,7 @@ import { ThemeToggle } from './theme-toggle';
 export const ThemeProvider = ({ children, ...props }: ThemeProviderProps) => {
   return (
     <NextThemesProvider {...props}>
-      <span className="fixed top-7 right-10">
+      <span className="fixed bottom-7 right-10">
         <ThemeToggle />
       </span>
       {children}

@@ -11,7 +11,7 @@ interface MarkdownViewerProps extends React.HTMLAttributes<HTMLDivElement> {
 export const MarkdownViewer = ({ markdown, ...props }: MarkdownViewerProps) => {
   return (
     <MarkdownTheme {...props}>
-      <MDEditor.Markdown source={markdown} />
+      <MDEditor.Markdown source={markdown} className="!bg-inherit" />
     </MarkdownTheme>
   );
 };

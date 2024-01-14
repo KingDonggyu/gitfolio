@@ -80,4 +80,16 @@
   .portfolio-template-detail a {
     @apply text-blue-500 dark:text-blue-400;
   }
+
+  .portfolio-template-detail ul {
+    @apply list-disc;
+  }
+
+  .portfolio-template-detail ol {
+    @apply list-decimal;
+  }
+
+  .portfolio-template-detail .wmde-markdown blockquote {
+    @apply !my-[16px];
+  }
 }
