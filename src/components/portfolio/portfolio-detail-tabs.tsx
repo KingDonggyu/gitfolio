@@ -13,7 +13,7 @@ interface PortfolioDetailTabsProps {
 
 export const PortfolioDetailTabs = ({ readmeViewer, taskViewer }: PortfolioDetailTabsProps) => {
   return (
-    <Tabs defaultValue={tabs.readme} className="p-6">
+    <Tabs defaultValue={tabs.readme}>
       <TabsList>
         <TabsTrigger value={tabs.readme}>
           <FileTextIcon className="mr-1" />
