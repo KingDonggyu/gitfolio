@@ -2,9 +2,17 @@
 
 import { useTheme } from 'next-themes';
 
-export const MarkdownTheme = ({ children }: { children: React.ReactNode }) => {
+interface MarkdownThemeProps extends React.HTMLAttributes<HTMLDivElement> {
+  children: React.ReactNode;
+}
+
+export const MarkdownTheme = ({ children, ...props }: MarkdownThemeProps) => {
   const { theme, systemTheme } = useTheme();
   const colorMode = theme === 'system' ? systemTheme : theme;
 
-  return <div data-color-mode={colorMode}>{children}</div>;
+  return (
+    <div data-color-mode={colorMode} {...props}>
+      {children}
+    </div>
+  );
 };

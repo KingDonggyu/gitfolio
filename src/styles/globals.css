@@ -74,3 +74,9 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  #portfolio-template a {
+    @apply text-blue-500 dark:text-blue-400;
+  }
+}

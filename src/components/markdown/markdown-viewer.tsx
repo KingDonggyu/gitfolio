@@ -4,13 +4,13 @@ import '@uiw/react-markdown-preview/markdown.css';
 import MDEditor from '@uiw/react-md-editor';
 import { MarkdownTheme } from './markdown-theme';
 
-interface MarkdownViewerProps {
+interface MarkdownViewerProps extends React.HTMLAttributes<HTMLDivElement> {
   markdown: string;
 }
 
-export const MarkdownViewer = ({ markdown }: MarkdownViewerProps) => {
+export const MarkdownViewer = ({ markdown, ...props }: MarkdownViewerProps) => {
   return (
-    <MarkdownTheme>
+    <MarkdownTheme {...props}>
       <MDEditor.Markdown source={markdown} />
     </MarkdownTheme>
   );
