@@ -2,12 +2,12 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { MarkdownViewer } from '@/components/markdown/markdown-viewer';
 import { PortfolioDetailTabs } from './portfolio-detail-tabs';
 
-interface PortfolioSeetProps {
+interface PortfolioDetailSeetProps {
   portfolioCard: React.ReactNode;
   readme: string;
 }
 
-export const PortfolioSeet = ({ portfolioCard, readme }: PortfolioSeetProps) => {
+export const PortfolioDetailSeet = ({ portfolioCard, readme }: PortfolioDetailSeetProps) => {
   return (
     <Sheet>
       <SheetTrigger className="w-full">{portfolioCard}</SheetTrigger>
