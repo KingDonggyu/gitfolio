@@ -1,4 +1,4 @@
-import mongoose, { type ConnectOptions, type Mongoose } from 'mongoose';
+import { connect, type ConnectOptions, type Mongoose } from 'mongoose';
 
 const mongodbUri = process.env.MONGODB_URI;
 
@@ -13,7 +13,7 @@ global.monogodb = global.monogodb || {
 
 const cachedConnection = global.monogodb;
 
-const connectMongoDB = async (): Promise<Mongoose> => {
+const connectMongodb = async (): Promise<Mongoose> => {
   if (cachedConnection.connection) {
     return cachedConnection.connection;
   }
@@ -23,11 +23,11 @@ const connectMongoDB = async (): Promise<Mongoose> => {
       bufferCommands: false,
     };
 
-    cachedConnection.connectionPromise = mongoose.connect(mongodbUri, connectOptions);
+    cachedConnection.connectionPromise = connect(mongodbUri, connectOptions);
   }
 
   cachedConnection.connection = await cachedConnection.connectionPromise;
   return cachedConnection.connection;
 };
 
-export default connectMongoDB;
+export default connectMongodb;

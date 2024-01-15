@@ -3,5 +3,8 @@ declare module 'user' {
     id: number;
     username: string;
     githubUrl: string;
+    links: string[];
+    email?: string;
+    introduce?: string;
   }
 }
