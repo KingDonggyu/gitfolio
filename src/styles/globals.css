@@ -78,7 +78,7 @@
 @layer components {
   .portfolio-template a,
   .portfolio-template-detail a {
-    @apply text-blue-500 dark:text-blue-400;
+    @apply text-blue-500 dark:text-blue-400 hover:underline underline-offset-4;
   }
 
   .portfolio-template-detail ul {

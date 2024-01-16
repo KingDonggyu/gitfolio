@@ -1,27 +1,48 @@
-import { Schema, model, models } from 'mongoose';
+import { Model, Schema, model, models } from 'mongoose';
 
-const userSchema = new Schema({
-  id: {
-    type: Number,
-    required: true,
-    unique: true,
-    trim: true,
-  },
-  username: {
-    type: String,
-    required: true,
-  },
-  githubUrl: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  links: [String],
-  email: {
-    type: String,
-    trim: true,
-  },
-  introduce: String,
-});
+interface User {
+  id: number;
+  username: string;
+  githubUrl: string;
+  links?: string[];
+  email?: string;
+  introduce?: string;
+}
 
-export default models.users || model('users', userSchema);
+type UserModel = Model<User>;
+
+const userSchema = new Schema<User, UserModel>(
+  {
+    id: {
+      type: Number,
+      required: true,
+      unique: true,
+      trim: true,
+    },
+    username: {
+      type: String,
+      required: true,
+    },
+    githubUrl: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    links: {
+      type: [String],
+      default: [],
+    },
+    email: {
+      type: String,
+      trim: true,
+    },
+    introduce: String,
+  },
+  {
+    timestamps: true,
+  }
+);
+
+const existingUserModel: UserModel | undefined = models.users;
+
+export default existingUserModel || model<User, UserModel>('users', userSchema);

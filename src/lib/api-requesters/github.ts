@@ -1,5 +1,5 @@
-import { AuthCookie } from '@/repository/cookies/auth';
 import axios, { AxiosInstance, InternalAxiosRequestConfig } from 'axios';
+import { AuthCookie } from '@/repository/cookies/auth';
 
 export const githubApiRequester: AxiosInstance = axios.create({
   baseURL: 'https://api.github.com/',
