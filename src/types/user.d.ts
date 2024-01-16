@@ -6,7 +6,7 @@ declare module 'user' {
   }
 
   interface User extends UserResponse {
-    links: string[];
+    links: Array<{ label: string; url: string }>;
     email?: string;
     introduce?: string;
   }

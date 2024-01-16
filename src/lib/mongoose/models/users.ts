@@ -1,15 +1,25 @@
 import { Model, Schema, model, models } from 'mongoose';
 
+type Link = { label: string; url: string };
+
 interface User {
   id: number;
   username: string;
   githubUrl: string;
-  links?: string[];
   email?: string;
   introduce?: string;
+  links?: Array<Link>;
 }
 
 type UserModel = Model<User>;
+
+const linkSchema = new Schema<Link>({
+  label: String,
+  url: {
+    type: String,
+    required: true,
+  },
+});
 
 const userSchema = new Schema<User, UserModel>(
   {
@@ -29,7 +39,7 @@ const userSchema = new Schema<User, UserModel>(
       unique: true,
     },
     links: {
-      type: [String],
+      type: [linkSchema],
       default: [],
     },
     email: {
