@@ -5,6 +5,7 @@ import { CodeIcon, StackIcon } from '@radix-ui/react-icons';
 
 import { type PortfolioSummary } from 'portfolio';
 import { Card } from '@/components/ui/card';
+import { formatToDatePeriodText } from '@/utils/formatToDatePeriodText';
 
 export const PortfolioCard = ({
   title,
@@ -14,7 +15,7 @@ export const PortfolioCard = ({
   githubRepositoryUrl,
   techStack,
 }: PortfolioSummary) => {
-  const periodText = `${startDate.year}.${startDate.month} ~ ${endDate.year}.${endDate.month}`;
+  const periodText = formatToDatePeriodText(startDate, endDate);
   const techStackText = techStack.join(', ');
 
   return (
