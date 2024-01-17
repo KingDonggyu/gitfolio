@@ -1,14 +1,8 @@
-import { githubApiRequester } from '@/lib/api-requesters';
 import type { GitHubUserResponse } from 'github';
-import type { UserResponse } from 'user';
+import { githubAppApiRequester } from '@/lib/api-requesters';
+import axios from 'axios';
 
-export const fetchUser = async (): Promise<UserResponse> => {
-  const response = await githubApiRequester.get<GitHubUserResponse>('user');
-  const { id, login, html_url } = response.data;
-
-  return {
-    id: id,
-    username: login,
-    githubUrl: html_url,
-  };
+export const fetchGitHubUser = async (): Promise<GitHubUserResponse> => {
+  const response = await githubAppApiRequester.get<GitHubUserResponse>('user');
+  return response.data;
 };

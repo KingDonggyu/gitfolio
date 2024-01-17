@@ -1,5 +1,10 @@
+import type {
+  GitHubLoginErrorResponse,
+  GitHubLoginRequest,
+  GitHubLoginResponse,
+  GitHubLoginSuccessResponse,
+} from 'github';
 import { githubOAuthApiRequester } from '@/lib/api-requesters';
-import type { GitHubLoginRequest, GitHubLoginResponse, GitHubLoginSuccessResponse } from 'github';
 
 export const postGitHubLogin = async (
   githubLoginRequest: GitHubLoginRequest
@@ -9,9 +14,15 @@ export const postGitHubLogin = async (
     githubLoginRequest
   );
 
-  if ('error' in response.data) {
+  if (isGitHubLoginError(response.data)) {
     throw new Error(response.data.error);
   }
 
   return response.data;
+};
+
+const isGitHubLoginError = (
+  response: GitHubLoginResponse
+): response is GitHubLoginErrorResponse => {
+  return 'error' in response;
 };
