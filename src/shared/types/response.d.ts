@@ -1,12 +1,10 @@
 declare module 'response' {
   interface ErrorResponse {
-    status: 'error';
+    type: 'httpError' | 'databaseError';
     errorMessage: string;
   }
 
   interface HttpErrorResponse extends ErrorResponse {
-    status: 'error';
-    errorCode: string;
-    errorMessage: string;
+    status?: number;
   }
 }
