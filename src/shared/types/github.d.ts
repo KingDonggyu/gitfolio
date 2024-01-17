@@ -1,4 +1,5 @@
 declare module 'github' {
+  /* auth */
   interface GitHubLoginRequest {
     code: string;
     client_id: string;
@@ -19,9 +20,13 @@ declare module 'github' {
 
   type GitHubLoginResponse = GitHubLoginSuccessResponse | GitHubLoginErrorResponse;
 
+  /* user */
   interface GitHubUserResponse {
     id: number;
     login: string;
     html_url: string;
+    blog: string | null;
+    email: string | null;
+    bio: string | null;
   }
 }

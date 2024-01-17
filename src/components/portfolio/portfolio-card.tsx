@@ -5,7 +5,7 @@ import { CodeIcon, StackIcon } from '@radix-ui/react-icons';
 
 import { type PortfolioSummary } from 'portfolio';
 import { Card } from '@/components/ui/card';
-import { formatToDatePeriodText } from '@/utils/formatToDatePeriodText';
+import { formatToDatePeriodText } from '@/shared/utils';
 
 export const PortfolioCard = ({
   title,

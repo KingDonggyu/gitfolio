@@ -1,12 +1,14 @@
 declare module 'user' {
-  interface UserResponse {
+  interface ProfileLink {
+    label: string;
+    url: string;
+  }
+
+  interface Profile {
     id: number;
     username: string;
     githubUrl: string;
-  }
-
-  interface User extends UserResponse {
-    links: Array<{ label: string; url: string }>;
+    links: Array<ProfileLink>;
     email?: string;
     introduce?: string;
   }
